@@ -2,6 +2,7 @@ from flask import request, jsonify, make_response
 from app import app
 from functools import wraps
 import json
+from app.reader.gpx import parseGpx
 
 @app.route("/")
 def get_initial_response():
@@ -19,8 +20,9 @@ def get_initial_response():
 
 @app.route('/api/v1/process-gpx', methods=['POST'])
 def process_gpx():
-    data = request.get_json()
-
+    gpxFile = request.files['gpx']
+    # return jsonify(data)
+    data = parseGpx(gpxFile)
     return jsonify(data)
 
 
