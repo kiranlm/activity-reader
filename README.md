@@ -2,9 +2,9 @@
 
 ##### A module that reads activities from `.gpx` files and
 
-#### :bulb: Accepted formats
+#### :snake: Accepted formats
 
-- [ ] GPX
+- [ ] .gpx
 
 #### :electric_plug: Installation
 
@@ -40,7 +40,7 @@ source activate runcoach
 
 
 
-pip install Flask
+pip install flask pandas gpxpy
 
 
 
