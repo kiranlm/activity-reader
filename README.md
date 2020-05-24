@@ -10,11 +10,7 @@
 
 ```bash
 
-
-
 git clone git@github.com:kiranlm/activity-reader.git
-
-
 
 ```
 
@@ -22,15 +18,9 @@ git clone git@github.com:kiranlm/activity-reader.git
 
 ```bash
 
-
-
 conda create -n runcoach python=3.7
 
-
-
 source activate runcoach
-
-
 
 ```
 
@@ -38,11 +28,7 @@ source activate runcoach
 
 ```python
 
-
-
 pip install flask pandas gpxpy
-
-
 
 ```
 
@@ -50,11 +36,7 @@ pip install flask pandas gpxpy
 
 ```bash
 
-
-
 python run-app.py
-
-
 
 ```
 

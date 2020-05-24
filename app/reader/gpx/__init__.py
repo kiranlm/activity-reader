@@ -1,6 +1,7 @@
 import gpxpy
 import gpxpy.gpx
 import pandas as pd
+import json
 
 # Parsing an existing file:
 # -------------------------
@@ -29,4 +30,5 @@ def parseGpx(gpxFile):
         df = df.append({'lon': point.longitude, 'lat' : point.latitude, 'alt' : point.elevation, 'time' : point.time}, ignore_index=True)
 
     print(df)
-    return True
+    jsonfiles = json.loads(df.to_json(orient='records'))
+    return jsonfiles
