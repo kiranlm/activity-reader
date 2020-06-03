@@ -7,7 +7,7 @@ import json
 # -------------------------
 def parseGpx(gpxFile):
 
-    print(type(gpxFile))
+    # print(type(gpxFile))
     gpx_file = open('tcs.gpx', 'r')
     gpx = gpxpy.parse(gpx_file)
     eventTime=gpx.time
@@ -21,17 +21,17 @@ def parseGpx(gpxFile):
 
     # print('GPX:', data)
     ## Start Position
-    start = data[0]
+    # start = data[0]
     ## End Position
-    finish = data[-1]
-    print(start)
-    print(finish)
+    # finish = data[-1]
+    # print(start)
+    # print(finish)
 
 
     df = pd.DataFrame(columns=['lon', 'lat', 'alt', 'time'])
     for point in data:
         df = df.append({'lon': point.longitude, 'lat' : point.latitude, 'alt' : point.elevation, 'time' : point.time}, ignore_index=True)
 
-    print(df)
+    # print(df)
     jsonfiles = json.loads(df.to_json(orient='records'))
     return {"data":jsonfiles,"name":eventName,"time":eventTime}
