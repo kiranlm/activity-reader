@@ -1,7 +1,7 @@
 """This is init module."""
 
 from flask import Flask
-from reader.gpx import rq
+from app.reader.gpx import rq
 
 # Place where app is defined
 app = Flask(__name__)
