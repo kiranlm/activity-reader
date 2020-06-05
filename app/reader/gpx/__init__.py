@@ -2,13 +2,9 @@ import gpxpy
 import gpxpy.gpx
 import pandas as pd
 import json
-from flask_rq2 import RQ
-
-rq = RQ()
 
 # Parsing an existing file:
 # -------------------------
-@rq.job
 def parseGpx(gpxFile):
 
     gpx_file = open('tcs.gpx', 'r')

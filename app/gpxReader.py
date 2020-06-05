@@ -2,7 +2,6 @@ from flask import request, jsonify, make_response
 from app import app
 from functools import wraps
 import json
-from time import sleep
 from app.reader.gpx import parseGpx
 
 @app.route("/")
@@ -24,7 +23,6 @@ def process_gpx():
     gpxFile = request.files['gpx']
     # return jsonify(data)
     data = parseGpx(gpxFile)
-    sleep(2.0)
     return jsonify(data)
 
 

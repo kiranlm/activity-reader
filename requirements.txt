@@ -7,4 +7,5 @@ itsdangerous==1.1.0
 jinja2==2.11.2
 markupSafe==1.1.1
 werkzeug==1.0.1
-flask-rq2==18.3
+redis==3.5.3
+rq==1.4.2
