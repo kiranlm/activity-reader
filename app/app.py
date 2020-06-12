@@ -6,6 +6,7 @@ import pandas as pd
 import json
 import os
 from redis import Redis
+import io
 
 app = Flask(__name__)
 
@@ -23,9 +24,10 @@ def get_initial_response():
 @app.route('/api/v1/process-gpx', methods=['POST'])
 def process_gpx():
     gpxFile = request.files['gpx']
-    # return jsonify(data)
-    data = parseGpx(gpxFile)
-    return jsonify(data)
+    with io.TextIOWrapper(gpxFile) as f:
+        # return jsonify(data)
+        data = parseGpx(f)
+        return jsonify(data)
 
 
 @app.errorhandler(404)
@@ -48,9 +50,8 @@ def page_not_found(e):
 # Parsing an existing file:
 # -------------------------
 def parseGpx(gpxFile):
-
-    gpx_file = open(os.path.join(app.root_path, '/data' ,'tcs.gpx'), 'r')
-    gpx = gpxpy.parse(gpx_file)
+    
+    gpx = gpxpy.parse(gpxFile)
     eventTime=gpx.time
     eventName=gpx.tracks[0].name
 
